@@ -5,6 +5,7 @@ import { directionsUrl, formatDistance } from '../data/helpers.js';
 import { hasLocation, optimizeOrder, routeStats, walkKm, walkMinutes } from '../data/walk.js';
 import Container from '../components/Container.jsx';
 import Link from '../components/Link.jsx';
+import RouteMap from '../components/RouteMap.jsx';
 import { ShareIcon } from '../components/icons.jsx';
 import { PATHS } from '../router.js';
 
@@ -260,6 +261,9 @@ export default function Route({ enter = 'animate-fadeIn' }) {
                 Clear all
               </span>
             </div>
+            {/* The route on a small map: reloads from Google whenever the
+                stops change, showing them in the current order. */}
+            <RouteMap stops={items} />
           </aside>
         </div>
       )}
